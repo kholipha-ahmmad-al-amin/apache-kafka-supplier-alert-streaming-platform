@@ -1,0 +1,1 @@
+import express from'express';import{stream}from'./domain.mjs';const d=stream(),a=express();a.get('/health',(_,r)=>r.json({status:'ok',events:d.events.length,topic:'supplier.alerts'}));const p=Number(process.env.STREAM_PORT)||19300;a.listen(p,'0.0.0.0',()=>console.log(`Alert streaming service on 0.0.0.0:${p}`));
